@@ -2,22 +2,32 @@
  * [303] Range Sum Query - Immutable
  *
  * Given an integer array nums, find the sum of the elements between indices i and j (i &le; j), inclusive.
+ * Implement the NumArray class:
  *
- * Example:<br>
+ * 	NumArray(int[] nums) Initializes the object with the integer array nums.
+ * 	int sumRange(int i, int j) Return the sum of the elements of the nums array in the range [i, j] inclusive (i.e., sum(nums[i], nums[i + 1], ... , nums[j]))
  *
- * Given nums = [-2, 0, 3, -5, 2, -1]
+ *  
+ * Example 1:
  *
- * sumRange(0, 2) -> 1
- * sumRange(2, 5) -> -1
- * sumRange(0, 5) -> -3
+ * Input
+ * ["NumArray", "sumRange", "sumRange", "sumRange"]
+ * [[[-2, 0, 3, -5, 2, -1]], [0, 2], [2, 5], [0, 5]]
+ * Output
+ * [null, 1, -1, -3]
+ * Explanation
+ * NumArray numArray = new NumArray([-2, 0, 3, -5, 2, -1]);
+ * numArray.sumRange(0, 2); // return 1 ((-2) + 0 + 3)
+ * numArray.sumRange(2, 5); // return -1 (3 + (-5) + 2 + (-1))
+ * numArray.sumRange(0, 5); // return -3 ((-2) + 0 + 3 + (-5) + 2 + (-1))
  *
+ *  
+ * Constraints:
  *
- *
- * Note:<br>
- * <ol>
- * You may assume that the array does not change.
- * There are many calls to sumRange function.
- * </ol>
+ * 	0 <= nums.length <= 10^4
+ * 	-10^5 <= nums[i] <= 10^5
+ * 	0 <= i <= j < nums.length
+ * 	At most 10^4 calls will be made to sumRange.
  *
  */
 pub struct Solution {}
@@ -28,7 +38,7 @@ pub struct Solution {}
 // submission codes start here
 
 struct NumArray {
-    nums: Vec<i32>,
+    sums: Vec<i32>,
 }
 
 /**
@@ -37,18 +47,18 @@ struct NumArray {
  */
 impl NumArray {
     fn new(nums: Vec<i32>) -> Self {
-        let mut res = 0;
-        let mut vec = Vec::with_capacity(nums.len());
-        for &num in nums.iter() {
-            res += num;
-            vec.push(res);
+        let mut sum = 0;
+        let mut sums = vec![0];
+        for v in nums.iter() {
+            sum += v;
+            sums.push(sum);
         }
-        NumArray { nums: vec }
+        NumArray { sums }
     }
 
     fn sum_range(&self, i: i32, j: i32) -> i32 {
         let (i, j) = (i as usize, j as usize);
-        self.nums[j] - if i > 0 { self.nums[i - 1] } else { 0 }
+        self.sums[j + 1] - self.sums[i]
     }
 }
 

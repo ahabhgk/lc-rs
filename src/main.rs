@@ -328,7 +328,7 @@ fn deal_problem(problem: &Problem, code: &CodeDefinition, write_mod_file: bool) 
         panic!("problem already initialized");
     }
 
-    let template = fs::read_to_string("./template.rs").unwrap();
+    let template = fs::read_to_string("./template/rust.txt").unwrap();
     let source = template
         .replace("__PROBLEM_TITLE__", &problem.title)
         .replace("__PROBLEM_DESC__", &build_desc(&problem.content))
