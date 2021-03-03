@@ -1,18 +1,24 @@
-# My Leetcode Solution in Rust
+# lc-rs
 
-Run `cargo run {id}` to initialize the template submission file of "question #id".
+Playing leetcode in rust~
 
-Run `cargo test test_{id}` to test the solution for "question #id".
+## usage
 
-对于大部分难度为 Hard 的问题, 会有中文的思路注释
+### start from scratch
 
-Working in progress, to do:
+1. remove all files in solution except mod.rs
+2. clean mod.rs content
+3. `cargo run`
 
-- [ ] auto generation of solution list (when 100 problems solved)
+### keep on playing
 
-## Usage
+just `cargo run`
 
-* Remove all the solution .rs
-* Clean lib.rs file
-* Start your leetcode journey in rust by typing `cargo run {question_id}`
+## todo
 
+- [ ] use official test cases for testing
+- [ ] submit to leetcode in cli
+
+## thx
+
+[aylei/leetcode-rust](https://github.com/aylei/leetcode-rust)
