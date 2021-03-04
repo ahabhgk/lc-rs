@@ -16,6 +16,7 @@ just `cargo run`
 
 ## todo
 
+- [ ] user login/logout
 - [ ] use official test cases for testing
 - [ ] submit to leetcode in cli
 

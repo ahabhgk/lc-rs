@@ -23,11 +23,11 @@ use std::sync::{Arc, Mutex};
 
 /// main() helps to generate the submission template .rs
 fn main() {
-    println!("Welcome to leetcode-rust system.\n");
+    println!("Welcome to lc-rs.\n");
     let mut initialized_ids = get_initialized_ids();
     loop {
         println!(
-            "Please enter a frontend problem id, \n\
+            "Please enter a problem id, \n\
             or \"random\" to generate a random one, \n\
             or \"solve $i\" to move problem to solution/, \n\
             or \"all\" to initialize all problems \n"
@@ -175,12 +175,11 @@ fn get_initialized_ids() -> Vec<u32> {
 
 fn parse_extra_use(code: &str) -> String {
     let mut extra_use_line = String::new();
-    // a linked-list problem
     if code.contains("pub struct ListNode") {
-        extra_use_line.push_str("\nuse crate::util::linked_list::{ListNode, to_list};")
+        extra_use_line.push_str("\nuse crate::util::linked_list::ListNode;")
     }
     if code.contains("pub struct TreeNode") {
-        extra_use_line.push_str("\nuse crate::util::tree::{TreeNode, to_tree};")
+        extra_use_line.push_str("\nuse crate::util::tree::TreeNode;")
     }
     if code.contains("pub struct Point") {
         extra_use_line.push_str("\nuse crate::util::point::Point;")
@@ -273,7 +272,7 @@ fn build_desc(content: &str) -> String {
         .replace("&minus;", "-")
         .replace("&#39;", "'")
         .replace("\n\n", "\n")
-        .replace("\n", "\n * ")
+        .replace("\n", "\n//! ")
 }
 
 fn deal_solving(id: &u32) {
