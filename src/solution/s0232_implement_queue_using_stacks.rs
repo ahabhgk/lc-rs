@@ -89,7 +89,7 @@ impl MyQueue {
 
     /** Returns whether the queue is empty. */
     fn empty(&self) -> bool {
-        self.head.len() + self.tail.len() == 0
+        self.head.is_empty() && self.tail.is_empty()
     }
 }
 
