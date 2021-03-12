@@ -4,6 +4,7 @@ mod s0227_basic_calculator_ii;
 mod s0232_implement_queue_using_stacks;
 mod s0303_range_sum_query_immutable;
 mod s0304_range_sum_query_2d_immutable;
+mod s0331_verify_preorder_serialization_of_a_binary_tree;
 mod s0338_counting_bits;
 mod s0354_russian_doll_envelopes;
 mod s0503_next_greater_element_ii;
