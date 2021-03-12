@@ -1,5 +1,6 @@
 mod s0131_palindrome_partitioning;
 mod s0224_basic_calculator;
+mod s0227_basic_calculator_ii;
 mod s0232_implement_queue_using_stacks;
 mod s0303_range_sum_query_immutable;
 mod s0304_range_sum_query_2d_immutable;
